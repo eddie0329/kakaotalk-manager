@@ -1,0 +1,103 @@
+{
+  "name": "reply-note",
+  "productName": "Reply Note",
+  "version": "0.4.14",
+  "private": true,
+  "description": "카카오톡 대화를 읽고 로컬 Codex로 답장 초안을 만드는 개인용 데스크톱 앱",
+  "author": "Eddie",
+  "main": "dist-electron/electron/app.js",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build:native": "node scripts/build-native.mjs",
+    "build": "npm run build:native && node scripts/build-electron.mjs && vite build",
+    "start": "electron .",
+    "demo": "npm run build && electron . --demo",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.electron.json",
+    "test": "vitest run",
+    "pack": "npm run build && electron-builder --dir",
+    "dist:mac": "npm run build && electron-builder --mac zip",
+    "dist:win": "npm run build && electron-builder --win nsis --x64",
+    "dist:win:zip": "npm run build && electron-builder --win zip --x64 -c.win.signAndEditExecutable=false"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "1.0.10",
+    "cfb": "1.2.2",
+    "lucide-react": "^0.468.0",
+    "mammoth": "1.13.0",
+    "pdfjs-dist": "6.4.299",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "saxes": "6.0.0",
+    "word-extractor": "1.0.4",
+    "yauzl": "3.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/word-extractor": "^1.0.6",
+    "@types/yauzl": "^3.4.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "electron": "45.0.0",
+    "electron-builder": "26.15.3",
+    "node-api-headers": "^1.9.0",
+    "typescript": "~5.9.3",
+    "vite": "8.3.5",
+    "vitest": "^5.0.5"
+  },
+  "build": {
+    "appId": "com.eddie.replynote",
+    "productName": "Reply Note",
+    "icon": "assets/icon.png",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        "zip"
+      ],
+      "extendInfo": {
+        "NSAccessibilityUsageDescription": "선택한 카카오톡 채팅방의 대화를 읽어 답장 초안을 만듭니다."
+      },
+      "extraResources": [
+        {
+          "from": "native/bin",
+          "to": "native",
+          "filter": [
+            "*.node",
+            "*.dylib"
+          ]
+        }
+      ],
+      "identity": "-",
+      "artifactName": "Reply-Note-${version}-${arch}-mac.${ext}"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "extraResources": [
+        {
+          "from": "native/windows",
+          "to": "native/windows",
+          "filter": [
+            "*.ps1",
+            "*.cs"
+          ]
+        }
+      ],
+      "artifactName": "Reply-Note-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}

@@ -1,0 +1,8 @@
+node_modules/
+dist/
+dist-electron/
+release/
+native/bin/
+.DS_Store
+*.log
+.env*

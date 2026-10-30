@@ -8,7 +8,7 @@
 
 ## 다운로드 연결
 
-GitHub Releases에 설치 파일을 게시한 다음 `app.js`의 플랫폼별 `url`에 실제 HTTPS 다운로드 주소, `version`에 해당 버전을 입력합니다. 현재 두 플랫폼 모두 v0.4.4 GitHub Release에 연결되어 있습니다. JavaScript가 꺼져도 다운로드할 수 있도록 index.html의 링크와 버전 표시도 함께 갱신해주세요.
+GitHub Releases에 설치 파일을 게시한 다음 `app.js`의 플랫폼별 `url`에 실제 HTTPS 다운로드 주소, `version`에 해당 버전을 입력합니다. 현재 두 플랫폼 모두 v0.4.14 GitHub Release에 연결되어 있습니다. JavaScript가 꺼져도 다운로드할 수 있도록 index.html의 링크와 버전 표시도 함께 갱신해주세요.
 
 ## GitHub Pages 게시
 

@@ -1,8 +1,8 @@
 // 공개된 GitHub Release 파일의 HTTPS URL과 버전을 입력하면 버튼이 활성화됩니다.
 // null인 동안에는 다운로드를 제공하지 않습니다.
 const releases = {
-  mac: { url: 'https://github.com/eddie0329/kakaotalk-manager/releases/download/v0.4.4/Reply-Note-0.4.4-arm64-mac.zip', version: '0.4.4' },
-  windows: { url: 'https://github.com/eddie0329/kakaotalk-manager/releases/download/v0.4.4/Reply-Note-Setup-0.4.4.exe', version: '0.4.4' },
+  mac: { url: 'https://github.com/eddie0329/kakaotalk-manager/releases/download/v0.4.14/Reply-Note-0.4.14-arm64-mac.zip', version: '0.4.14' },
+  windows: { url: 'https://github.com/eddie0329/kakaotalk-manager/releases/download/v0.4.14/Reply-Note-Setup-0.4.14.exe', version: '0.4.14' },
 };
 
 for (const [platform, release] of Object.entries(releases)) {
